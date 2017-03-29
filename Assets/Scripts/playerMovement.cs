@@ -9,12 +9,8 @@ public class playerMovement : MonoBehaviour {
 
 	public float speed = .5f;
 	public Rigidbody2D self;
-<<<<<<< HEAD
 	public Rigidbody2D goalZone;
-	bool gameover = false;
-=======
 	public bool gameover = false;
->>>>>>> 84cc51ab1b5a83d4a49fc1d7e122fd315bd81656
 	public int redZone = 0;
 	public Text gameStatus;
 	public int diamonds = 8;
@@ -50,23 +46,17 @@ public class playerMovement : MonoBehaviour {
 		if(gameover){
 			StartCoroutine (restartGame ());
 		}
-<<<<<<< HEAD
 		if(collected >=6){
 			goalZone.GetComponent<SpriteRenderer> ().enabled = true;
 			goalZone.GetComponent<goalZone> ().enabled = true;
 		}
-=======
->>>>>>> 84cc51ab1b5a83d4a49fc1d7e122fd315bd81656
 		if(goal == true){
 			gameStatus.text = "You collected " + collected + "/8 \n";
 			if(collected == 8){
 				gameStatus.text += "Excellent!";
 			}
-<<<<<<< HEAD
 			else if(collected >=6){
-=======
-			else if(collected >=4){
->>>>>>> 84cc51ab1b5a83d4a49fc1d7e122fd315bd81656
+			// else if(collected >=4){
 				gameStatus.text += "You win!";
 			}
 			else{
@@ -81,12 +71,9 @@ public class playerMovement : MonoBehaviour {
 		if(Input.GetKey(KeyCode.RightArrow)){
 			transform.Translate(speed, 0f, 0f);
 		}
-<<<<<<< HEAD
 		else if(Input.GetKey(KeyCode.LeftArrow)){
 			//transform.Translate(-speed, 0f, 0f);
 		}
-=======
->>>>>>> 84cc51ab1b5a83d4a49fc1d7e122fd315bd81656
 		else if(Input.GetKey(KeyCode.UpArrow)){
 			transform.Translate(0f, speed, 0f);
 		}
@@ -96,6 +83,5 @@ public class playerMovement : MonoBehaviour {
 		else if(Input.GetKey(KeyCode.Space)){
 			SceneManager.LoadScene (0);
 		}
-
 	}
 }

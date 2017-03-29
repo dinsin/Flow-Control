@@ -21,11 +21,8 @@ public class redZone : MonoBehaviour {
 			player.GetComponent<playerMovement> ().diamonds -= 1;
 		}
 		if(col.gameObject.tag == "player"){
-<<<<<<< HEAD
 		//	player.GetComponent<playerMovement> ().goal = true;
-=======
 			player.GetComponent<playerMovement> ().goal = true;
->>>>>>> 84cc51ab1b5a83d4a49fc1d7e122fd315bd81656
 		}
 	}
 
