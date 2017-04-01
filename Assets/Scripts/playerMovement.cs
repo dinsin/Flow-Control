@@ -13,8 +13,8 @@ public class playerMovement : MonoBehaviour {
 	public bool gameover = false;
 	public int redZone = 0;
 	public Text gameStatus;
-	public int diamonds = 8;
-	public int collected = 0;
+	public int diamonds = 8;  //set number of diamonds in inspector
+	int collected = 0;
 	public bool goal = false;
 
 	void Start () {
@@ -28,16 +28,21 @@ public class playerMovement : MonoBehaviour {
 			Debug.Log ("Collected Diamond");
 		}
 		else if(col.gameObject.tag == "obstacle"){
-			gameStatus.text = "Touched a Red Circle";
+			//gameStatus.text = "Touched a Red Circle";
 			gameover = true;
 			//Destroy (gameObject);
 		}
 	}
 	IEnumerator restartGame(){
-		gameStatus.enabled = true;
+		Debug.Log ("Gameover");
+		//gameStatus.enabled = true;
 		yield return new WaitForSeconds (1.1f);
-		gameStatus.enabled = false;
-		SceneManager.LoadScene (0);
+		//gameStatus.enabled = false;
+		//SceneManager.LoadScene (0);
+
+		//Restarts current level
+		Application.LoadLevel(Application.loadedLevel);
+
 
 	}
 
@@ -46,33 +51,32 @@ public class playerMovement : MonoBehaviour {
 		if(gameover){
 			StartCoroutine (restartGame ());
 		}
-		if(collected >=6){
+		if(collected >=diamonds-2){
 			goalZone.GetComponent<SpriteRenderer> ().enabled = true;
 			goalZone.GetComponent<goalZone> ().enabled = true;
 		}
 		if(goal == true){
-			gameStatus.text = "You collected " + collected + "/8 \n";
-			if(collected == 8){
-				gameStatus.text += "Excellent!";
+			//gameStatus.text = "You collected " + collected + "/8 \n";
+			if(collected == diamonds){
+				//gameStatus.text += "Excellent!";
 			}
-			else if(collected >=6){
-			// else if(collected >=4){
-				gameStatus.text += "You win!";
+			else if(collected >=diamonds-2){
+				//gameStatus.text += "You win!";
 			}
 			else{
-				gameStatus.text += "You Lose!";
+				//gameStatus.text += "You Lose!";
 			}
 			gameover = true;
 		}
-		if(redZone > 3){
-			gameStatus.text = "3 Red circles entered Red Zone";
+		if(redZone >= 3){
+			//gameStatus.text = "3 Red circles entered Red Zone";
+			Debug.Log("3circles");
 			gameover = true;
 		}
 		if(Input.GetKey(KeyCode.RightArrow)){
 			transform.Translate(speed, 0f, 0f);
 		}
 		else if(Input.GetKey(KeyCode.LeftArrow)){
-			//transform.Translate(-speed, 0f, 0f);
 		}
 		else if(Input.GetKey(KeyCode.UpArrow)){
 			transform.Translate(0f, speed, 0f);
@@ -81,7 +85,9 @@ public class playerMovement : MonoBehaviour {
 			transform.Translate(0f, -speed, 0f);
 		}
 		else if(Input.GetKey(KeyCode.Space)){
-			SceneManager.LoadScene (0);
+			Application.LoadLevel(Application.loadedLevel);
+
+			//SceneManager.LoadScene (0);
 		}
 	}
 }
