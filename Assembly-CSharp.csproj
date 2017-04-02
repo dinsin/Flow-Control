@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\ScreenShake.cs" />
      <Compile Include="Assets\Scripts\damageFlash.cs" />
      <Compile Include="Assets\Scripts\destroyWall.cs" />
+     <Compile Include="Assets\Scripts\gameSound.cs" />
      <Compile Include="Assets\Scripts\goalZone.cs" />
      <Compile Include="Assets\Scripts\obstacleMove.cs" />
      <Compile Include="Assets\Scripts\playerMovement.cs" />

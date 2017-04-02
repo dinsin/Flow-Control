@@ -25,6 +25,7 @@ public class ScreenShake : MonoBehaviour {
 
 		if(gameover || (currentRedzone < player.GetComponent<playerMovement>().redZone)){
 			shakeStrength = 1f;
+			Debug.Log ("Shaking");
 			currentRedzone = player.GetComponent<playerMovement> ().redZone;
 			gameover = false;
 		}

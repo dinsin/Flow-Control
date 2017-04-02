@@ -16,9 +16,11 @@ public class playerMovement : MonoBehaviour {
 	public int diamonds = 8;  //set number of diamonds in inspector
 	int collected = 0;
 	public bool goal = false;
+	public AudioSource aS;
 
 	void Start () {
 		self = GetComponent<Rigidbody2D> ();
+		gameover = false;
 	}
 
 	void OnCollisionEnter2D(Collision2D col){
@@ -30,13 +32,14 @@ public class playerMovement : MonoBehaviour {
 		else if(col.gameObject.tag == "obstacle"){
 			//gameStatus.text = "Touched a Red Circle";
 			gameover = true;
+			aS.GetComponent<gameSound> ().hitObstacle = true;
 			//Destroy (gameObject);
 		}
 	}
 	IEnumerator restartGame(){
 		Debug.Log ("Gameover");
 		//gameStatus.enabled = true;
-		yield return new WaitForSeconds (1.1f);
+		yield return new WaitForSeconds (1.5f);
 		//gameStatus.enabled = false;
 		//SceneManager.LoadScene (0);
 
@@ -51,7 +54,7 @@ public class playerMovement : MonoBehaviour {
 		if(gameover){
 			StartCoroutine (restartGame ());
 		}
-		if(collected >=diamonds-2){
+		if(collected >=diamonds){
 			goalZone.GetComponent<SpriteRenderer> ().enabled = true;
 			goalZone.GetComponent<goalZone> ().enabled = true;
 		}
@@ -75,18 +78,20 @@ public class playerMovement : MonoBehaviour {
 		}
 		if(Input.GetKey(KeyCode.RightArrow)){
 			transform.Translate(speed, 0f, 0f);
+			//self.AddForce (new Vector2 (speed , 0.0f));\
 		}
 		else if(Input.GetKey(KeyCode.LeftArrow)){
 		}
 		else if(Input.GetKey(KeyCode.UpArrow)){
 			transform.Translate(0f, speed, 0f);
+			//self.AddForce (new Vector2 (0f , speed));
 		}
 		else if(Input.GetKey(KeyCode.DownArrow)){
 			transform.Translate(0f, -speed, 0f);
+			//self.AddForce (new Vector2 (0f , -speed));
 		}
 		else if(Input.GetKey(KeyCode.Space)){
 			Application.LoadLevel(Application.loadedLevel);
-
 			//SceneManager.LoadScene (0);
 		}
 	}
