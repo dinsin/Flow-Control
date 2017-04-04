@@ -69,7 +69,8 @@ public class playerMovement : MonoBehaviour {
 			else{
 				//gameStatus.text += "You Lose!";
 			}
-			gameover = true;
+			StartCoroutine (restartGame ());
+			//gameover = true;
 		}
 		if(redZone >= 3){
 			//gameStatus.text = "3 Red circles entered Red Zone";
