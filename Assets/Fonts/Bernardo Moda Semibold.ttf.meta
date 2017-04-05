@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: efeb4691662e29245a2f65dab72d8761
+timeCreated: 1491368586
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Bernardo Moda Semibold
+  fontNames:
+  - Bernardo Moda Semibold
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: ed5ad49941eb2104fa67c20185c9aab2
+timeCreated: 1491368586
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Bernardo Moda
+  fontNames:
+  - Bernardo Moda
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
