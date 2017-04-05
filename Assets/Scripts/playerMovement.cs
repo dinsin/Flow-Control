@@ -25,6 +25,7 @@ public class playerMovement : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D col){
 		if(col.gameObject.tag == "diamond"){
+			
 			Destroy (col.gameObject);
 			collected += 1;
 			Debug.Log ("Collected Diamond");
@@ -69,7 +70,8 @@ public class playerMovement : MonoBehaviour {
 			else{
 				//gameStatus.text += "You Lose!";
 			}
-			gameover = true;
+			StartCoroutine (restartGame ());
+			//gameover = true;
 		}
 		if(redZone >= 3){
 			//gameStatus.text = "3 Red circles entered Red Zone";
