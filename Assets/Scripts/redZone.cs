@@ -5,6 +5,7 @@ using UnityEngine;
 public class redZone : MonoBehaviour {
 
 	public Rigidbody2D player;
+	public AudioSource aS;
 
 	void Start () {
 		
@@ -14,6 +15,8 @@ public class redZone : MonoBehaviour {
 		Debug.Log ("onTrigger");
 		if(col.gameObject.tag == "obstacle"){
 			player.GetComponent<playerMovement> ().redZone += 1;
+//			GetComponent<flashDamage>().getDamage = true;
+			StartCoroutine(flash());
 			Debug.Log ("redCircle");
 		}
 		if(col.gameObject.tag == "diamond"){
@@ -27,5 +30,12 @@ public class redZone : MonoBehaviour {
 
 	void Update () {
 		
+	}
+
+	IEnumerator flash(){
+		GetComponent<flashDamage>().getDamage = true;
+		aS.Play();
+		yield return new WaitForSeconds(0.1f);
+		GetComponent<flashDamage>().getDamage = false;
 	}
 }
