@@ -25,6 +25,7 @@ public class playerMovement : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D col){
 		if(col.gameObject.tag == "diamond"){
+			
 			Destroy (col.gameObject);
 			collected += 1;
 			Debug.Log ("Collected Diamond");
