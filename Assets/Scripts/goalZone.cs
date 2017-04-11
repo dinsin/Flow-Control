@@ -16,6 +16,10 @@ public class goalZone : MonoBehaviour {
 	IEnumerator nextLevel(){
 		yield return new WaitForSeconds (.5f);
 		if (SceneManager.GetActiveScene ().name  == "Level1.1")
+			SceneManager.LoadScene ("avoidObstZ");
+		
+			//SceneManager.LoadScene ("Level1.3");
+		else if (SceneManager.GetActiveScene ().name == "avoidObstZ")
 			SceneManager.LoadScene ("Level1.3");
 		else if (SceneManager.GetActiveScene ().name == "Level1.3")
 			SceneManager.LoadScene ("usingObst");
@@ -36,6 +40,7 @@ public class goalZone : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col){
 		if(col.gameObject.tag == "player" && player.GetComponent<playerMovement>().goal == true){
 			aS.GetComponent<gameSound> ().goalReached = true;
+			Debug.Log ("WON");
 			StartCoroutine (nextLevel ());
 
 		}
