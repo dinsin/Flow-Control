@@ -16,7 +16,6 @@ public class redZone : MonoBehaviour {
 
 	IEnumerator reStart(){
 		yield return new WaitForSeconds (1.0f);
-
 		//Restarts current level
 		Application.LoadLevel(Application.loadedLevel);
 

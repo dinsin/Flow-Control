@@ -52,6 +52,7 @@ public class playerMovement : MonoBehaviour {
 		if(collected >=diamonds){
 			goalZone.GetComponent<SpriteRenderer> ().enabled = true;
 			goalZone.GetComponent<goalZone> ().enabled = true;
+			goal = true;
 		}
 		if(goal == true){
 			//StartCoroutine (restartGame ());
