@@ -1,14 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class redZone : MonoBehaviour {
 
 	public Rigidbody2D player;
 	public AudioSource aS;
+	bool gameover = false;
 
 	void Start () {
 		
+	}
+
+	IEnumerator reStart(){
+		yield return new WaitForSeconds (1.0f);
+
+		//Restarts current level
+		Application.LoadLevel(Application.loadedLevel);
+
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
@@ -24,12 +35,12 @@ public class redZone : MonoBehaviour {
 			player.GetComponent<playerMovement> ().diamonds -= 1;
 		}
 		if(col.gameObject.tag == "player"){
-			player.GetComponent<playerMovement> ().gameover = true;
+			StartCoroutine (reStart ());
 		}
 	}
 
 	void Update () {
-		
+
 	}
 
 	IEnumerator flash(){

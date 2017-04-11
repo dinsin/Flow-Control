@@ -31,19 +31,13 @@ public class playerMovement : MonoBehaviour {
 			Debug.Log ("Collected Diamond");
 		}
 		else if(col.gameObject.tag == "obstacle"){
-			//gameStatus.text = "Touched a Red Circle";
 			gameover = true;
 			aS.GetComponent<gameSound> ().hitObstacle = true;
-			//Destroy (gameObject);
 		}
 	}
 	IEnumerator restartGame(){
 		Debug.Log ("Gameover");
-		//gameStatus.enabled = true;
 		yield return new WaitForSeconds (1.5f);
-		//gameStatus.enabled = false;
-		//SceneManager.LoadScene (0);
-
 		//Restarts current level
 		Application.LoadLevel(Application.loadedLevel);
 
@@ -60,21 +54,9 @@ public class playerMovement : MonoBehaviour {
 			goalZone.GetComponent<goalZone> ().enabled = true;
 		}
 		if(goal == true){
-			//gameStatus.text = "You collected " + collected + "/8 \n";
-			if(collected == diamonds){
-				//gameStatus.text += "Excellent!";
-			}
-			else if(collected >=diamonds-2){
-				//gameStatus.text += "You win!";
-			}
-			else{
-				//gameStatus.text += "You Lose!";
-			}
-			StartCoroutine (restartGame ());
-			//gameover = true;
+			//StartCoroutine (restartGame ());
 		}
 		if(redZone >= 3){
-			//gameStatus.text = "3 Red circles entered Red Zone";
 			Debug.Log("3circles");
 			gameover = true;
 		}
