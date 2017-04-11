@@ -16,15 +16,16 @@ public class goalZone : MonoBehaviour {
 	IEnumerator nextLevel(){
 		yield return new WaitForSeconds (.5f);
 		if (SceneManager.GetActiveScene ().name  == "Level1.1")
-			SceneManager.LoadScene ("Level1.2");
-		else if (SceneManager.GetActiveScene ().name  == "Level1.2")
 			SceneManager.LoadScene ("Level1.3");
-		//else if (SceneManager.GetActiveScene ().name == "Level1.3")
-		//	SceneManager.LoadScene ("Proto2");
 		else if (SceneManager.GetActiveScene ().name == "Level1.3")
 			SceneManager.LoadScene ("usingObst");
+		else if (SceneManager.GetActiveScene ().name  == "usingObst")
+			SceneManager.LoadScene ("Level1.2");
+		//else if (SceneManager.GetActiveScene ().name == "Level1.3")
+		//	SceneManager.LoadScene ("Proto2");
 
-		else if (SceneManager.GetActiveScene ().name == "usingObst")
+
+		else if (SceneManager.GetActiveScene ().name == "Level1.2")
 			SceneManager.LoadScene ("Level2");
 
 		else if (SceneManager.GetActiveScene ().name == "Level2")
