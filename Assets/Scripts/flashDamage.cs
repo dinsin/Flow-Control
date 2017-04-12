@@ -10,7 +10,7 @@ public class flashDamage : MonoBehaviour {
 	public GameObject overlay;
 
 	void Start () {
-		//overlay.GetComponent<SpriteRenderer>().enabled = true;
+//		overlay.GetComponent<SpriteRenderer>().enabled = true;
 	}
 	
 	void Update () {
