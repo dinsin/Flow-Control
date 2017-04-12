@@ -1,14 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\bgmHandler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\playerMovement.cs">
     <Files>
       <File FileName="Assets\Scripts\ScreenShake.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\gameSound.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\playerMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\playerMovement.cs" Line="40" Column="42" />
       <File FileName="Assets\Scripts\damageFlash.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\flashDamage.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\levelSelection.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\bgmHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\bgmHandler.cs" Line="18" Column="82" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
