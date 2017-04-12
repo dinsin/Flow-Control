@@ -37,7 +37,7 @@ public class playerMovement : MonoBehaviour {
 	}
 	IEnumerator restartGame(){
 		Debug.Log ("Gameover");
-		yield return new WaitForSeconds (1.5f);
+		yield return new WaitForSeconds (0.5f);
 		//Restarts current level
 		Application.LoadLevel(Application.loadedLevel);
 
