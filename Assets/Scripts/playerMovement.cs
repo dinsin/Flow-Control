@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class playerMovement : MonoBehaviour {
 
-	public float speed = .5f;
+	float speed = 1.0f;
 	public Rigidbody2D self;
 	public Rigidbody2D goalZone;
 	public bool gameover = false;
@@ -65,18 +65,21 @@ public class playerMovement : MonoBehaviour {
 			gameover = true;
 		}
 		if(Input.GetKey(KeyCode.RightArrow)){
-			transform.Translate(speed, 0f, 0f);
-			//self.AddForce (new Vector2 (speed , 0.0f));\
+//			transform.Translate(speed, 0f, 0f);
+//			self.AddForce (new Vector2 (speed , 0.0f));
+			self.velocity = new Vector2(self.velocity.x + speed, self.velocity.y);
 		}
-		else if(Input.GetKey(KeyCode.LeftArrow)){
+		if(Input.GetKey(KeyCode.LeftArrow)){
 		}
-		else if(Input.GetKey(KeyCode.UpArrow)){
-			transform.Translate(0f, speed, 0f);
+		if(Input.GetKey(KeyCode.UpArrow)){
+//			transform.Translate(0f, speed, 0f);
 			//self.AddForce (new Vector2 (0f , speed));
+			self.velocity = new Vector2(self.velocity.x, self.velocity.y + speed);
 		}
 		else if(Input.GetKey(KeyCode.DownArrow)){
-			transform.Translate(0f, -speed, 0f);
+//			transform.Translate(0f, -speed, 0f);
 			//self.AddForce (new Vector2 (0f , -speed));
+			self.velocity = new Vector2(self.velocity.x, self.velocity.y - speed);
 		}
 		else if(Input.GetKey(KeyCode.Space)){
 			Application.LoadLevel(Application.loadedLevel);

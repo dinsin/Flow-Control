@@ -15,6 +15,7 @@ public class flashDamage : MonoBehaviour {
 	
 	void Update () {
 		if (getDamage) {
+			overlay.GetComponent<SpriteRenderer>().enabled = true;
 			Color Opaque = new Color(1, 1, 1, 1);
 			overlay.GetComponent<Renderer>().material.color = Color.Lerp(overlay.GetComponent<Renderer>().material.color, Opaque, 20 * Time.deltaTime);
 			if (overlay.GetComponent<Renderer>().material.color.a >= 0.8) { //Almost Opaque, close enough
