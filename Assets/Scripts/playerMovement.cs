@@ -13,7 +13,7 @@ public class playerMovement : MonoBehaviour {
 	public bool gameover = false;
 	public int redZone = 0;
 	public Text gameStatus;
-	public int diamonds = 3;  //set number of diamonds in inspector
+	public int diamonds = 8;  //set number of diamonds in inspector
 	int collected = 0;
 	public bool goal = false;
 	public AudioSource aS;
@@ -21,109 +21,107 @@ public class playerMovement : MonoBehaviour {
 	float psStartSpeed;
 	float psStartSize;
 	float psStartEmissionRate;
+	float psStartLifetime;
+	public GameObject particlePrefab;
 
-	void Start () {
-		self = GetComponent<Rigidbody2D> ();
+	void Start() {
+		self = GetComponent<Rigidbody2D>();
 		gameover = false;
 		psStartSpeed = ps.startSpeed;
 		psStartSize = ps.startSize;
 		psStartEmissionRate = ps.emissionRate;
+		psStartLifetime = ps.startLifetime;
 	}
 
-	void OnCollisionEnter2D(Collision2D col){
-		if(col.gameObject.tag == "diamond"){
-			
-			Destroy (col.gameObject);
+	void OnCollisionEnter2D(Collision2D col) {
+		if (col.gameObject.tag == "diamond") {
+			Destroy(col.gameObject);
 			collected += 1;
 			Debug.Log ("Collected Diamond");
 		}
-		else if(col.gameObject.tag == "obstacle"){
-			gameover = true;
-			aS.GetComponent<gameSound> ().hitObstacle = true;
+		else if (col.gameObject.tag == "obstacle") {
+//			gameover = true;
+//			StartCoroutine(particleCollision());
+			ContactPoint2D contact = col.contacts[0];
+			Object explosion = Instantiate(particlePrefab, contact.point, Quaternion.Euler(0, 0, 0));
+			Destroy(explosion, 3.0f);
+			Debug.Log("Collided");
+
+//			self.velocity *= -10;
+//			self.AddForce(self.velocity.x * -1, self.velocity.y * -1);
+
+			aS.GetComponent<gameSound>().hitObstacle = true;
 		}
 	}
-
-	IEnumerator nextLevel(){
-		yield return new WaitForSeconds (.5f);
-		if (SceneManager.GetActiveScene ().name  == "Level1.1")
-			SceneManager.LoadScene ("avoidObstZ");
-
-		//SceneManager.LoadScene ("Level1.3");
-		else if (SceneManager.GetActiveScene ().name == "avoidObstZ")
-			SceneManager.LoadScene ("Level1.3");
-		else if (SceneManager.GetActiveScene ().name == "Level1.3")
-			SceneManager.LoadScene ("usingObst");
-		else if (SceneManager.GetActiveScene ().name  == "usingObst")
-			SceneManager.LoadScene ("Level1.2");
-		//else if (SceneManager.GetActiveScene ().name == "Level1.3")
-		//	SceneManager.LoadScene ("Proto2");
-
-
-		else if (SceneManager.GetActiveScene ().name == "Level1.2")
-			SceneManager.LoadScene ("Level2");
-
-		else if (SceneManager.GetActiveScene ().name == "Level2")
-			SceneManager.LoadScene ("Level3");
-	}
-
-	IEnumerator restartGame(){
-		Debug.Log ("Gameover");
-		yield return new WaitForSeconds (0.5f);
+	IEnumerator restartGame() {
+		Debug.Log("Gameover");
+		yield return new WaitForSeconds(0.5f);
 		//Restarts current level
 		Application.LoadLevel(Application.loadedLevel);
 
+
 	}
-
-
-	void Update () {
-		if(gameover){
-			Debug.Log ("LOST");
+		
+	void Update() {
+		if (gameover) {
+			Debug.Log("LOST");
 			collected = 0;
 			StartCoroutine (restartGame ());
 		}
-		if(collected >=diamonds){
-			//goalZone.GetComponent<SpriteRenderer> ().enabled = true;
-			//goalZone.GetComponent<goalZone> ().enabled = true;
-			//goal = true;
-			Debug.Log ("WON");
-			StartCoroutine (nextLevel ());
+		if (collected >= diamonds) {
+			goalZone.GetComponent<SpriteRenderer>().enabled = true;
+			goalZone.GetComponent<goalZone>().enabled = true;
+			goal = true;
 
 		}
-		if(goal == true){
+		if (goal == true) {
 			//StartCoroutine (restartGame ());
 		}
-		if(redZone >= 3){
+		if (redZone >= 3) {
 			Debug.Log("3circles");
 			gameover = true;
 		}
-		if(Input.GetKey(KeyCode.RightArrow)){
-//			transform.Translate(speed, 0f, 0f);
-//			self.AddForce (new Vector2 (speed , 0.0f));
+		if (Input.GetKey(KeyCode.RightArrow)) {
 			self.velocity = new Vector2(self.velocity.x + speed, self.velocity.y);
 		}
-		if(Input.GetKey(KeyCode.LeftArrow)){
+		if (Input.GetKey(KeyCode.LeftArrow)) {
 			ps.startSpeed = 3.5f;
 			ps.startSize = 2.5f;
 			ps.emissionRate = 20;
 		}
-		if(Input.GetKeyUp(KeyCode.LeftArrow)) {
+		if (Input.GetKeyUp(KeyCode.LeftArrow)) {
 			ps.startSpeed = psStartSpeed;
 			ps.startSize = psStartSize;
 			ps.emissionRate = psStartEmissionRate;
 		}
-		if(Input.GetKey(KeyCode.UpArrow)){
-//			transform.Translate(0f, speed, 0f);
-			//self.AddForce (new Vector2 (0f , speed));
+		if (Input.GetKey(KeyCode.UpArrow)) {
 			self.velocity = new Vector2(self.velocity.x, self.velocity.y + speed);
 		}
-		else if(Input.GetKey(KeyCode.DownArrow)){
-//			transform.Translate(0f, -speed, 0f);
-			//self.AddForce (new Vector2 (0f , -speed));
+		else if (Input.GetKey(KeyCode.DownArrow)) {
 			self.velocity = new Vector2(self.velocity.x, self.velocity.y - speed);
 		}
-		else if(Input.GetKey(KeyCode.Space)){
+		else if (Input.GetKey(KeyCode.Space)) {
 			Application.LoadLevel(Application.loadedLevel);
-			//SceneManager.LoadScene (0);
 		}
+	}
+
+	IEnumerator particleCollision() {
+//		float prevStartSpeed = ps.startSpeed;
+//		float prevStartSize = ps.startSize;
+//		float prevEmissionRate = ps.emissionRate;
+//
+		ps.startSpeed = 10.5f;
+		ps.startSize = 2.5f;
+		ps.emissionRate = 50;
+		ps.startLifetime = 0.4f;
+
+		yield return new WaitForSeconds(0.2f);
+
+		ps.startSpeed = psStartSpeed;
+		ps.startSize = psStartSize;
+		ps.emissionRate = psStartEmissionRate;
+		ps.startLifetime = psStartLifetime;
+
+		Debug.Log("Finished collision");
 	}
 }
