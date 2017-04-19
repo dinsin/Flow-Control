@@ -3,10 +3,13 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/playerMovement.cs">
     <Files>
       <File FileName="Assets/Scripts/obstacleMove.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/playerMovement.cs" Line="43" Column="13" />
-      <File FileName="Assets/Scripts/seemlessAudio.cs" Line="12" Column="8" />
+      <File FileName="Assets/Scripts/playerMovement.cs" Line="100" Column="40" />
       <File FileName="Assets/Scripts/goalZone.cs" Line="42" Column="29" />
       <File FileName="Assets/Scripts/gameSound.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/redZone.cs" Line="26" Column="18" />
+      <File FileName="Assets/Scripts/flashDamage.cs" Line="18" Column="58" />
+      <File FileName="Assets/Scripts/collectedDiam.cs" Line="15" Column="4" />
+      <File FileName="Assets/Scripts/beginGame.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

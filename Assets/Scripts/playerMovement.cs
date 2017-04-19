@@ -17,10 +17,17 @@ public class playerMovement : MonoBehaviour {
 	int collected = 0;
 	public bool goal = false;
 	public AudioSource aS;
+	public ParticleSystem ps;
+	float psStartSpeed;
+	float psStartSize;
+	float psStartEmissionRate;
 
 	void Start () {
 		self = GetComponent<Rigidbody2D> ();
 		gameover = false;
+		psStartSpeed = ps.startSpeed;
+		psStartSize = ps.startSize;
+		psStartEmissionRate = ps.emissionRate;
 	}
 
 	void OnCollisionEnter2D(Collision2D col){
@@ -70,6 +77,14 @@ public class playerMovement : MonoBehaviour {
 			self.velocity = new Vector2(self.velocity.x + speed, self.velocity.y);
 		}
 		if(Input.GetKey(KeyCode.LeftArrow)){
+			ps.startSpeed = 3.5f;
+			ps.startSize = 2.5f;
+			ps.emissionRate = 20;
+		}
+		if(Input.GetKeyUp(KeyCode.LeftArrow)) {
+			ps.startSpeed = psStartSpeed;
+			ps.startSize = psStartSize;
+			ps.emissionRate = psStartEmissionRate;
 		}
 		if(Input.GetKey(KeyCode.UpArrow)){
 //			transform.Translate(0f, speed, 0f);
