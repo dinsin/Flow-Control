@@ -13,7 +13,7 @@ public class playerMovement : MonoBehaviour {
 	public bool gameover = false;
 	public int redZone = 0;
 	public Text gameStatus;
-	public int diamonds = 8;  //set number of diamonds in inspector
+	public int diamonds = 3;  //set number of diamonds in inspector
 	int collected = 0;
 	public bool goal = false;
 	public AudioSource aS;
@@ -42,12 +42,35 @@ public class playerMovement : MonoBehaviour {
 			aS.GetComponent<gameSound> ().hitObstacle = true;
 		}
 	}
+
+	IEnumerator nextLevel(){
+		yield return new WaitForSeconds (.5f);
+		if (SceneManager.GetActiveScene ().name  == "Level1.1")
+			SceneManager.LoadScene ("avoidObstZ");
+
+		//SceneManager.LoadScene ("Level1.3");
+		else if (SceneManager.GetActiveScene ().name == "avoidObstZ")
+			SceneManager.LoadScene ("Level1.3");
+		else if (SceneManager.GetActiveScene ().name == "Level1.3")
+			SceneManager.LoadScene ("usingObst");
+		else if (SceneManager.GetActiveScene ().name  == "usingObst")
+			SceneManager.LoadScene ("Level1.2");
+		//else if (SceneManager.GetActiveScene ().name == "Level1.3")
+		//	SceneManager.LoadScene ("Proto2");
+
+
+		else if (SceneManager.GetActiveScene ().name == "Level1.2")
+			SceneManager.LoadScene ("Level2");
+
+		else if (SceneManager.GetActiveScene ().name == "Level2")
+			SceneManager.LoadScene ("Level3");
+	}
+
 	IEnumerator restartGame(){
 		Debug.Log ("Gameover");
 		yield return new WaitForSeconds (0.5f);
 		//Restarts current level
 		Application.LoadLevel(Application.loadedLevel);
-
 
 	}
 
@@ -59,9 +82,11 @@ public class playerMovement : MonoBehaviour {
 			StartCoroutine (restartGame ());
 		}
 		if(collected >=diamonds){
-			goalZone.GetComponent<SpriteRenderer> ().enabled = true;
-			goalZone.GetComponent<goalZone> ().enabled = true;
-			goal = true;
+			//goalZone.GetComponent<SpriteRenderer> ().enabled = true;
+			//goalZone.GetComponent<goalZone> ().enabled = true;
+			//goal = true;
+			Debug.Log ("WON");
+			StartCoroutine (nextLevel ());
 
 		}
 		if(goal == true){
