@@ -40,7 +40,6 @@ public class playerMovement : MonoBehaviour {
 			Debug.Log ("Collected Diamond");
 		}
 		else if (col.gameObject.tag == "obstacle") {
-//			gameover = true;
 //			StartCoroutine(particleCollision());
 			ContactPoint2D contact = col.contacts[0];
 			Object explosion = Instantiate(particlePrefab, contact.point, Quaternion.Euler(0, 0, 0));
@@ -51,6 +50,7 @@ public class playerMovement : MonoBehaviour {
 //			self.AddForce(self.velocity.x * -1, self.velocity.y * -1);
 
 			aS.GetComponent<gameSound>().hitObstacle = true;
+			gameover = true;
 		}
 	}
 	IEnumerator restartGame() {
@@ -64,25 +64,27 @@ public class playerMovement : MonoBehaviour {
 
 	IEnumerator nextLevel(){
 		yield return new WaitForSeconds (.5f);
-		if (SceneManager.GetActiveScene ().name  == "Level1.1")
-			SceneManager.LoadScene ("avoidObstZ");
+		if (SceneManager.GetActiveScene ().name  == "avoidObstZ")
+			SceneManager.LoadScene ("Level1.3");
 
 		//SceneManager.LoadScene ("Level1.3");
-		else if (SceneManager.GetActiveScene ().name == "avoidObstZ")
-			SceneManager.LoadScene ("Level1.3");
 		else if (SceneManager.GetActiveScene ().name == "Level1.3")
-			SceneManager.LoadScene ("usingObst");
-		else if (SceneManager.GetActiveScene ().name  == "usingObst")
 			SceneManager.LoadScene ("Level1.2");
+		else if (SceneManager.GetActiveScene ().name == "Level1.2")
+			SceneManager.LoadScene ("Level2");
+		else if (SceneManager.GetActiveScene ().name  == "Level2")
+			SceneManager.LoadScene ("usingObst");
 		//else if (SceneManager.GetActiveScene ().name == "Level1.3")
 		//	SceneManager.LoadScene ("Proto2");
 
 
-		else if (SceneManager.GetActiveScene ().name == "Level1.2")
-			SceneManager.LoadScene ("Level2");
+		else if (SceneManager.GetActiveScene ().name == "usingObst")
+			SceneManager.LoadScene ("Level1.1");
 
-		else if (SceneManager.GetActiveScene ().name == "Level2")
+		else if (SceneManager.GetActiveScene ().name == "Level1.1")
 			SceneManager.LoadScene ("Level3");
+		else if (SceneManager.GetActiveScene ().name == "Level3")
+			SceneManager.LoadScene ("Proto2");
 	}
 		
 	void Update() {
