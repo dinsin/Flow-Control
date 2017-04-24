@@ -13,7 +13,7 @@ public class playerMovement : MonoBehaviour {
 	public bool gameover = false;
 	public int redZone = 0;
 	public Text gameStatus;
-	public int diamonds = 8;  //set number of diamonds in inspector
+	public int diamonds = 5;  //set number of diamonds in inspector
 	int collected = 0;
 	public bool goal = false;
 	public AudioSource aS;
@@ -31,6 +31,15 @@ public class playerMovement : MonoBehaviour {
 		psStartSize = ps.startSize;
 		psStartEmissionRate = ps.emissionRate;
 		psStartLifetime = ps.startLifetime;
+	}
+
+	void OnTriggerEnter2D(Collider2D col) {
+		if (col.gameObject.CompareTag("obstacle")) {
+			Vector3 position = (col.transform.position - transform.position) / 2;
+			Object explosion = Instantiate(particlePrefab, position, Quaternion.Euler(0, 0, 0));
+			Destroy(explosion, 3.0f);
+			Debug.Log("Almost Collided");
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D col) {
