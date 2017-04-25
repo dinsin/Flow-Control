@@ -35,8 +35,8 @@ public class playerMovement : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.gameObject.CompareTag("obstacle")) {
-			Vector3 position = (col.transform.position - transform.position) / 2;
-			Object explosion = Instantiate(particlePrefab, position, Quaternion.Euler(0, 0, 0));
+			//Vector3 position = (col.transform.position - transform.position) / 2;
+			Object explosion = Instantiate(particlePrefab, col.transform.position, Quaternion.Euler(0, 0, 0));
 			Destroy(explosion, 3.0f);
 			Debug.Log("Almost Collided");
 		}
