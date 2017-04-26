@@ -4,7 +4,7 @@
     <Files>
       <File FileName="Assets\Scripts\goalZone.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\beginGame.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\playerMovement.cs" Line="117" Column="3" />
+      <File FileName="Assets\Scripts\playerMovement.cs" Line="116" Column="34" />
       <File FileName="Assets\Scripts\levelSelection.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\titleScreen.cs" Line="1" Column="1" />
     </Files>

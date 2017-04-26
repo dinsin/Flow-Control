@@ -113,7 +113,7 @@ public class playerMovement : MonoBehaviour {
 			SceneManager.LoadScene ("Proto2");
 
 		else if (SceneManager.GetActiveScene ().name == "Proto2")
-			SceneManager.LoadScene ("titleScreen");
+			SceneManager.LoadScene ("Title");
 	}
 		
 	void Update() {
