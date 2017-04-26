@@ -111,6 +111,9 @@ public class playerMovement : MonoBehaviour {
 			SceneManager.LoadScene ("Level3");
 		else if (SceneManager.GetActiveScene ().name == "Level3")
 			SceneManager.LoadScene ("Proto2");
+
+		else if (SceneManager.GetActiveScene ().name == "Proto2")
+			SceneManager.LoadScene ("titleScreen");
 	}
 		
 	void Update() {
