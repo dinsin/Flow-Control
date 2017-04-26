@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6115ccc3c1f4d4e7695ede62c40b099a
+timeCreated: 1493132871
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Market Deco
+  fontNames:
+  - Market Deco
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a4c5221c8d5fe714aa0fdc9d790b757b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
