@@ -47,13 +47,13 @@ public class levelSelection : MonoBehaviour {
 				SceneManager.LoadScene("Level1.2");
 			}
 			if (index == 3) {
-				SceneManager.LoadScene("Level2");
-			}
-			if (index == 4) {
 				SceneManager.LoadScene("usingObst");
 			}
-			if (index == 5) {
+			if (index == 4) {
 				SceneManager.LoadScene("Level1.1");
+			}
+			if (index == 5) {
+				SceneManager.LoadScene("Level2");
 			}
 			if (index == 6) {
 				SceneManager.LoadScene("Level3");
