@@ -61,6 +61,13 @@ public class playerMovement : MonoBehaviour {
 			aS.GetComponent<gameSound>().hitObstacle = true;
 			gameover = true;
 		}
+		else if (col.gameObject.tag == "titleObstacle") {
+			ContactPoint2D contact = col.contacts[0];
+			Object explosion = Instantiate(particlePrefab, contact.point, Quaternion.Euler(0, 0, 0));
+			Destroy(explosion, 3.0f);
+			Debug.Log("Collided");
+			aS.GetComponent<gameSound>().hitObstacle = true;
+		}
 	}
 	IEnumerator restartGame() {
 		Debug.Log("Gameover");
@@ -122,13 +129,15 @@ public class playerMovement : MonoBehaviour {
 		}
 		if (Input.GetKey(KeyCode.LeftArrow)) {
 			ps.startSpeed = 3.5f;
-			ps.startSize = 2.5f;
+			ps.startSize = 2.0f;
 			ps.emissionRate = 20;
+			ps.startLifetime = 1;
 		}
 		if (Input.GetKeyUp(KeyCode.LeftArrow)) {
 			ps.startSpeed = psStartSpeed;
 			ps.startSize = psStartSize;
 			ps.emissionRate = psStartEmissionRate;
+			ps.startLifetime = psStartLifetime;
 		}
 		if (Input.GetKey(KeyCode.UpArrow)) {
 			self.velocity = new Vector2(self.velocity.x, self.velocity.y + speed);
