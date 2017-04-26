@@ -80,7 +80,17 @@ public class playerMovement : MonoBehaviour {
 
 	IEnumerator nextLevel(){
 		yield return new WaitForSeconds (.5f);
-		if (SceneManager.GetActiveScene ().name  == "avoidObstZ")
+
+		if (SceneManager.GetActiveScene ().name == "Level0")
+			SceneManager.LoadScene ("Level0.1");
+		else if (SceneManager.GetActiveScene ().name == "Level0.1")
+			SceneManager.LoadScene ("Level0.2");
+		else if (SceneManager.GetActiveScene ().name  == "Level0.2")
+			SceneManager.LoadScene ("Level0.3");
+		else if (SceneManager.GetActiveScene ().name  == "Level0.3")
+			SceneManager.LoadScene ("avoidObstZ");
+
+		else if (SceneManager.GetActiveScene ().name  == "avoidObstZ")
 			SceneManager.LoadScene ("Level1.3");
 
 		//SceneManager.LoadScene ("Level1.3");

@@ -21,11 +21,8 @@ public class beginGame : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D col){
 		if (col.gameObject.tag == "diamond") {
-			SceneManager.LoadScene ("avoidObstZ");
+			SceneManager.LoadScene ("Level0");
 		} 
-		if (Input.GetKey (KeyCode.Space)) {
-			SceneManager.LoadScene ("avoidObstZ");
-		}
 	}
 
 	void Update () {
