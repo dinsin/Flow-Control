@@ -68,38 +68,39 @@ public class levelSelection : MonoBehaviour {
 				SceneManager.LoadScene("Level0");
 			}
 			if (index == 1) {
-				SceneManager.LoadScene("Level0.1");
+				SceneManager.LoadScene("Level0.2");
 			}
 			if (index == 2) {
-				SceneManager.LoadScene("Level0.2");
+				SceneManager.LoadScene("avoidObstZ");
 			}
 			if (index == 3) {
 				SceneManager.LoadScene("Level0.3");
 			}
 			if (index == 4) {
-				SceneManager.LoadScene("avoidObstZ");
-			}
-			if (index == 5) {
 				SceneManager.LoadScene("Level1.3");
 			}
-			if (index == 6) {
-				SceneManager.LoadScene("Level1.2");
+			if (index == 5) {
+				SceneManager.LoadScene("Level0.4");
 			}
-			if (index == 7) {
+			if (index == 6) {
 				SceneManager.LoadScene("usingObst");
 			}
-			if (index == 8) {
+			if (index == 7) {
 				SceneManager.LoadScene("Level1.1");
 			}
+			if (index == 8) {
+				SceneManager.LoadScene("newLevel3");
+			}
 			if (index == 9) {
-				SceneManager.LoadScene("Level2");
+				SceneManager.LoadScene("Level1.2");
 			}
 			if (index == 10) {
-				SceneManager.LoadScene("Level3");
-			}
-			if (index == 11) {
 				SceneManager.LoadScene("Proto2");
 			}
+			if (index == 11) {
+				SceneManager.LoadScene("Level2");
+			}
+
 		}
 
 	}

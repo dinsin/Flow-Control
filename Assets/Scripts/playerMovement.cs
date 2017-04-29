@@ -9,7 +9,6 @@ public class playerMovement : MonoBehaviour {
 
 	float speed = 1.0f;
 	public Rigidbody2D self;
-	public Rigidbody2D goalZone;
 	public bool gameover = false;
 	public int redZone = 0;
 	public Text gameStatus;
@@ -82,37 +81,37 @@ public class playerMovement : MonoBehaviour {
 		yield return new WaitForSeconds (.2f);
 
 		if (SceneManager.GetActiveScene ().name == "Level0")
-			SceneManager.LoadScene ("Level0.1");
-		else if (SceneManager.GetActiveScene ().name == "Level0.1")
 			SceneManager.LoadScene ("Level0.2");
-		else if (SceneManager.GetActiveScene ().name  == "Level0.2")
+		else if (SceneManager.GetActiveScene ().name == "Level0.2")
+			SceneManager.LoadScene ("avoidObstZ");
+		else if (SceneManager.GetActiveScene ().name  == "avoidObstZ")
 			SceneManager.LoadScene ("Level0.3");
 		else if (SceneManager.GetActiveScene ().name  == "Level0.3")
-			SceneManager.LoadScene ("avoidObstZ");
-
-		else if (SceneManager.GetActiveScene ().name  == "avoidObstZ")
 			SceneManager.LoadScene ("Level1.3");
 
+		else if (SceneManager.GetActiveScene ().name  == "Level1.3")
+			SceneManager.LoadScene ("Level0.4");
+
 		//SceneManager.LoadScene ("Level1.3");
-		else if (SceneManager.GetActiveScene ().name == "Level1.3")
-			SceneManager.LoadScene ("Level1.2");
-		else if (SceneManager.GetActiveScene ().name == "Level1.2")
-			SceneManager.LoadScene ("Level2");
-		else if (SceneManager.GetActiveScene ().name  == "Level2")
+		else if (SceneManager.GetActiveScene ().name == "Level0.4")
 			SceneManager.LoadScene ("usingObst");
+		else if (SceneManager.GetActiveScene ().name == "usingObst")
+			SceneManager.LoadScene ("Level1.1");
+		else if (SceneManager.GetActiveScene ().name  == "Level1.1")
+			SceneManager.LoadScene ("newLevel3");
 		//else if (SceneManager.GetActiveScene ().name == "Level1.3")
 		//	SceneManager.LoadScene ("Proto2");
 
 
-		else if (SceneManager.GetActiveScene ().name == "usingObst")
-			SceneManager.LoadScene ("Level1.1");
+		else if (SceneManager.GetActiveScene ().name == "newLevel3")
+			SceneManager.LoadScene ("Level1.2");
 
-		else if (SceneManager.GetActiveScene ().name == "Level1.1")
-			SceneManager.LoadScene ("Level3");
-		else if (SceneManager.GetActiveScene ().name == "Level3")
+		else if (SceneManager.GetActiveScene ().name == "Level1.2")
 			SceneManager.LoadScene ("Proto2");
-
 		else if (SceneManager.GetActiveScene ().name == "Proto2")
+			SceneManager.LoadScene ("Level2");
+
+		else if (SceneManager.GetActiveScene ().name == "Level2")
 			SceneManager.LoadScene ("Title");
 	}
 		
@@ -123,9 +122,7 @@ public class playerMovement : MonoBehaviour {
 			StartCoroutine (restartGame ());
 		}
 		if (collected >= diamonds) {
-			//goalZone.GetComponent<SpriteRenderer>().enabled = true;
-			//goalZone.GetComponent<goalZone>().enabled = true;
-			//goal = true;
+
 			Debug.Log ("WON");
 			StartCoroutine (nextLevel ());
 

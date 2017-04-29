@@ -44,7 +44,7 @@ public class redZone : MonoBehaviour {
 
 	IEnumerator flash(){
 		GetComponent<flashDamage>().getDamage = true;
-		aS.Play();
+		//aS.Play();
 		yield return new WaitForSeconds(0.1f);
 		GetComponent<flashDamage>().getDamage = false;
 	}
