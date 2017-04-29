@@ -14,7 +14,7 @@ public class playerMovement : MonoBehaviour {
 	public int redZone = 0;
 	public Text gameStatus;
 	public int diamonds = 5;  //set number of diamonds in inspector
-	int collected = 0;
+	public int collected = 0;
 	public bool goal = false;
 	public AudioSource aS;
 	public ParticleSystem ps;
@@ -71,7 +71,7 @@ public class playerMovement : MonoBehaviour {
 	}
 	IEnumerator restartGame() {
 		Debug.Log("Gameover");
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(0.3f);
 		//Restarts current level
 		Application.LoadLevel(Application.loadedLevel);
 
@@ -79,7 +79,7 @@ public class playerMovement : MonoBehaviour {
 	}
 
 	IEnumerator nextLevel(){
-		yield return new WaitForSeconds (.5f);
+		yield return new WaitForSeconds (.2f);
 
 		if (SceneManager.GetActiveScene ().name == "Level0")
 			SceneManager.LoadScene ("Level0.1");
