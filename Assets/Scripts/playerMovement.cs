@@ -56,8 +56,10 @@ public class playerMovement : MonoBehaviour {
 
 //			self.velocity *= -10;
 //			self.AddForce(self.velocity.x * -1, self.velocity.y * -1);
+			bgmHandler.bgm.hitObstacle = true;
 
-			aS.GetComponent<gameSound>().hitObstacle = true;
+
+			//aS.GetComponent<gameSound>().hitObstacle = true;
 			gameover = true;
 		}
 		else if (col.gameObject.tag == "titleObstacle") {
@@ -65,7 +67,7 @@ public class playerMovement : MonoBehaviour {
 			Object explosion = Instantiate(particlePrefab, contact.point, Quaternion.Euler(0, 0, 0));
 			Destroy(explosion, 3.0f);
 			Debug.Log("Collided");
-			aS.GetComponent<gameSound>().hitObstacle = true;
+			//aS.GetComponent<gameSound>().hitObstacle = true;
 		}
 	}
 	IEnumerator restartGame() {

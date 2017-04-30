@@ -27,6 +27,9 @@ public class redZone : MonoBehaviour {
 			player.GetComponent<playerMovement> ().redZone += 1;
 //			GetComponent<flashDamage>().getDamage = true;
 			StartCoroutine(flash());
+			bgmHandler.bgm.hitObstacle = true;
+
+
 			Debug.Log ("redCircle");
 		}
 		if(col.gameObject.tag == "diamond"){

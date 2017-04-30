@@ -1,25 +1,1 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class bgmHandler : MonoBehaviour {
-
-	public AudioSource audio;
-	static bool beginAudio = false;
-
-	void Awake(){
-		if (!beginAudio) {
-			audio.Play ();
-			DontDestroyOnLoad (gameObject);
-			beginAudio = true;
-		} 
-	}
-
-	//void Update () {										Can stop the audio at a certain scene if you want to
-	//	if(Application.loadedLevelName == "Proto2"){
-	//		audio.Stop();
-	//		beginAudio = false;
-	//	}
-	//}
-
-}
+﻿using System.Collections; using System.Collections.Generic; using UnityEngine;  public class bgmHandler : MonoBehaviour { 	public static bgmHandler bgm;  	public AudioSource audio; 	public bool hitObstacle = false; 	public bool goalReached = false; 	static bool beginAudio = false;  	void Awake(){ 		if (!beginAudio) { 			audio.Play (); 			DontDestroyOnLoad (gameObject); 			beginAudio = true; 			bgm = this; 		}   	}    	IEnumerator hit(){ 		audio.pitch = .45f; 		yield return new WaitForSeconds (.4f); 		audio.pitch = 1.0f; 		hitObstacle = false; 	}   	void Update () {									//	Can stop the audio at a certain scene if you want to 		//	if(Application.loadedLevelName == "Proto2"){ 		//		audio.Stop(); 		//		beginAudio = false; 		if(hitObstacle == true){ 			//audio.pitch = .45f; 			StartCoroutine(hit()); 		}  	} 	//}  }  
