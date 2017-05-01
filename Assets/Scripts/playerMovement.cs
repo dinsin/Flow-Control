@@ -22,6 +22,8 @@ public class playerMovement : MonoBehaviour {
 	float psStartEmissionRate;
 	float psStartLifetime;
 	public GameObject particlePrefab;
+	public AudioSource pickUp;
+
 
 	void Start() {
 		self = GetComponent<Rigidbody2D>();
@@ -45,6 +47,8 @@ public class playerMovement : MonoBehaviour {
 		if (col.gameObject.tag == "diamond") {
 			Destroy(col.gameObject);
 			collected += 1;
+			//pickUp.Play ();
+			bgmHandler.bgm.goalReached = true;
 			Debug.Log ("Collected Diamond");
 		}
 		else if (col.gameObject.tag == "obstacle") {
@@ -72,7 +76,7 @@ public class playerMovement : MonoBehaviour {
 	}
 	IEnumerator restartGame() {
 		Debug.Log("Gameover");
-		yield return new WaitForSeconds(0.3f);
+		yield return new WaitForSeconds(0.7f);
 		//Restarts current level
 		Application.LoadLevel(Application.loadedLevel);
 
@@ -80,7 +84,7 @@ public class playerMovement : MonoBehaviour {
 	}
 
 	IEnumerator nextLevel(){
-		yield return new WaitForSeconds (.2f);
+		yield return new WaitForSeconds (.7f);
 
 		if (SceneManager.GetActiveScene ().name == "Level0")
 			SceneManager.LoadScene ("Level0.2");
