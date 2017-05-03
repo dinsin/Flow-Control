@@ -22,7 +22,9 @@ public class playerMovement : MonoBehaviour {
 	float psStartEmissionRate;
 	float psStartLifetime;
 	public GameObject particlePrefab;
-	public AudioSource pickUp;
+	public AudioSource pickup1;
+	public AudioSource pickup2;
+	public AudioSource pickup3;
 
 
 	void Start() {
@@ -47,9 +49,18 @@ public class playerMovement : MonoBehaviour {
 		if (col.gameObject.tag == "diamond") {
 			Destroy(col.gameObject);
 			collected += 1;
-			//pickUp.Play ();
-			bgmHandler.bgm.goalReached = true;
+			//pickup1.Play ();
+			//bgmHandler.bgm.goalReached = true;
 			Debug.Log ("Collected Diamond");
+			if (collected == 1){
+				pickup1.Play ();
+			}
+			else if (collected == 2){
+				pickup2.Play ();
+			}
+			else if (collected == 3){
+				pickup3.Play ();
+			}
 		}
 		else if (col.gameObject.tag == "obstacle") {
 //			StartCoroutine(particleCollision());
