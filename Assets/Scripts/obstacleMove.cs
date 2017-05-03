@@ -6,7 +6,7 @@ public class obstacleMove : MonoBehaviour {
 
 	public Rigidbody2D player;
 	public Rigidbody2D self;
-	public float speed = 1.0f; //uniform speed
+	public float speed = 1.2f; //uniform speed
 
 	public static float Ldrag = .5f;
 

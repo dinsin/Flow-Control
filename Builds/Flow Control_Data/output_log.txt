@@ -1,11 +1,3 @@
-Mono path[0] = 'C:/Users/Dinesh/Documents/Unity/Flow-Control/Builds/Flow Control_Data/Managed'
-Mono path[1] = 'C:/Users/Dinesh/Documents/Unity/Flow-Control/Builds/Flow Control_Data/Mono'
-Mono config path = 'C:/Users/Dinesh/Documents/Unity/Flow-Control/Builds/Flow Control_Data/Mono/etc'
-PlayerConnection initialized from C:/Users/Dinesh/Documents/Unity/Flow-Control/Builds/Flow Control_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55076
-Multi-casting "[IP] 172.16.29.159 [Port] 55076 [Flags] 2 [Guid] 4195451751 [EditorId] 1317634962 [Version] 1048832 [Id] WindowsPlayer(Dinesh-PC) [Debug] 0" to [225.0.0.222:54997]...
-Started listening to [0.0.0.0:55076]
-PlayerConnection already initialized - listening to [0.0.0.0:55076]
 Initialize engine version: 5.5.2f1 (3829d7f588f3)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -25,48 +17,13 @@ Platform assembly: C:\Users\Dinesh\Documents\Unity\Flow-Control\Builds\Flow Cont
 Loading C:\Users\Dinesh\Documents\Unity\Flow-Control\Builds\Flow Control_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Dinesh\Documents\Unity\Flow-Control\Builds\Flow Control_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
 Loading C:\Users\Dinesh\Documents\Unity\Flow-Control\Builds\Flow Control_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-- Completed reload, in  0.129 seconds
+- Completed reload, in  0.139 seconds
 Platform assembly: C:\Users\Dinesh\Documents\Unity\Flow-Control\Builds\Flow Control_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Dinesh\Documents\Unity\Flow-Control\Builds\Flow Control_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 4.696500 ms
-Collected Diamond
-UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
-UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
-UnityEngine.Logger:Log(LogType, Object)
-UnityEngine.Debug:Log(Object)
-playerMovement:OnCollisionEnter2D(Collision2D) (at C:\Users\Dinesh\Documents\Unity\Flow-Control\Assets\Scripts\playerMovement.cs:49)
- 
-(Filename: C:/Users/Dinesh/Documents/Unity/Flow-Control/Assets/Scripts/playerMovement.cs Line: 49)
-
-Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 19.561766 ms
-System memory in use before: 24.3 MB.
-System memory in use after: 24.4 MB.
-
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1289.
-Total: 2.931570 ms (FindLiveObjects: 0.203563 ms CreateObjectMapping: 0.094083 ms MarkObjects: 2.566353 ms  DeleteObjects: 0.056022 ms)
-
-Collected Diamond
-UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
-UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
-UnityEngine.Logger:Log(LogType, Object)
-UnityEngine.Debug:Log(Object)
-playerMovement:OnCollisionEnter2D(Collision2D) (at C:\Users\Dinesh\Documents\Unity\Flow-Control\Assets\Scripts\playerMovement.cs:49)
- 
-(Filename: C:/Users/Dinesh/Documents/Unity/Flow-Control/Assets/Scripts/playerMovement.cs Line: 49)
-
-Collected Diamond
-UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
-UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
-UnityEngine.Logger:Log(LogType, Object)
-UnityEngine.Debug:Log(Object)
-playerMovement:OnCollisionEnter2D(Collision2D) (at C:\Users\Dinesh\Documents\Unity\Flow-Control\Assets\Scripts\playerMovement.cs:49)
- 
-(Filename: C:/Users/Dinesh/Documents/Unity/Flow-Control/Assets/Scripts/playerMovement.cs Line: 49)
-
+UnloadTime: 3.809544 ms
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 2f80 -> priority: 1 
+  Thread -> id: 4238 -> priority: 1 

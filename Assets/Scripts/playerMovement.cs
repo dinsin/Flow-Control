@@ -25,6 +25,7 @@ public class playerMovement : MonoBehaviour {
 	public AudioSource pickup1;
 	public AudioSource pickup2;
 	public AudioSource pickup3;
+	public AudioSource collision;
 
 
 	void Start() {
@@ -72,6 +73,7 @@ public class playerMovement : MonoBehaviour {
 //			self.velocity *= -10;
 //			self.AddForce(self.velocity.x * -1, self.velocity.y * -1);
 			bgmHandler.bgm.hitObstacle = true;
+//			collision.Play();
 
 
 			//aS.GetComponent<gameSound>().hitObstacle = true;

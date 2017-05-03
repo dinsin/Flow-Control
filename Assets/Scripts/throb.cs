@@ -7,7 +7,7 @@ public class throb : MonoBehaviour {
 
 	private float _currentScale = InitScale;
 	private const float TargetScale = 3.9f;
-	private const float InitScale = 2.6f;
+	private const float InitScale = 3.0f;
 	private const int FramesCount = 10;
 	private const float AnimationTimeSeconds = 0.5f;
 	private float _deltaTime = AnimationTimeSeconds/FramesCount;
