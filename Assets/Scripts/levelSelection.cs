@@ -63,6 +63,22 @@ public class levelSelection : MonoBehaviour {
 				player.transform.position = new Vector2(player.transform.position.x - 1.38f, player.transform.position.y);	
 			}
 		}
+
+		if(Input.GetKeyDown(KeyCode.UpArrow)){
+			if(index >=6 && index < 12){
+				index = index - 6;
+				player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y + 1.75f);	
+
+			}
+		}
+		if(Input.GetKeyDown(KeyCode.DownArrow)){
+			if(index >= 0 && index <=5){
+				index = index + 6;
+				player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y - 1.75f);	
+
+			}
+		}
+
 		if (Input.GetKeyDown(KeyCode.Space)) {
 			if (index == 0) {
 				SceneManager.LoadScene("Level0");
