@@ -9,6 +9,7 @@ public class redZone : MonoBehaviour {
 	public Rigidbody2D player;
 	public AudioSource aS;
 	bool gameover = false;
+	public GameObject particlePrefab;
 
 	void Start () {
 		
@@ -28,6 +29,9 @@ public class redZone : MonoBehaviour {
 //			GetComponent<flashDamage>().getDamage = true;
 			StartCoroutine(flash());
 			bgmHandler.bgm.hitObstacle = true;
+
+			Object explosion = Instantiate(particlePrefab, col.transform.position, Quaternion.Euler(0, 0, 0));
+			Destroy(explosion, 3.0f);
 
 
 			Debug.Log ("redCircle");
