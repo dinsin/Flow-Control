@@ -27,6 +27,8 @@ public class playerMovement : MonoBehaviour {
 	public AudioSource pickup3;
 	public AudioSource collision;
 
+	float idle = 0.0f;
+
 
 	void Start() {
 		self = GetComponent<Rigidbody2D>();
@@ -89,7 +91,7 @@ public class playerMovement : MonoBehaviour {
 	}
 	IEnumerator restartGame() {
 		Debug.Log("Gameover");
-		yield return new WaitForSeconds(0.7f);
+		yield return new WaitForSeconds(1.0f);
 		//Restarts current level
 		Application.LoadLevel(Application.loadedLevel);
 
@@ -149,11 +151,11 @@ public class playerMovement : MonoBehaviour {
 		if (goal == true) {
 			//StartCoroutine (restartGame ());
 		}
-		if (redZone >= 3) {
+		if (redZone >= 2) {
 			Debug.Log("3circles");
 			gameover = true;
 		}
-		if (Input.GetKey(KeyCode.RightArrow)) {
+		if (Input.GetKey(KeyCode.RightArrow)&& SceneManager.GetActiveScene ().name != "Info") {
 			self.velocity = new Vector2(self.velocity.x + speed, self.velocity.y);
 		}
 		if (Input.GetKey(KeyCode.LeftArrow)) {
@@ -168,14 +170,28 @@ public class playerMovement : MonoBehaviour {
 			ps.emissionRate = psStartEmissionRate;
 			ps.startLifetime = psStartLifetime;
 		}
-		if (Input.GetKey(KeyCode.UpArrow)) {
+		if (Input.GetKey(KeyCode.UpArrow)&& SceneManager.GetActiveScene ().name != "Info") {
 			self.velocity = new Vector2(self.velocity.x, self.velocity.y + speed);
 		}
-		else if (Input.GetKey(KeyCode.DownArrow)) {
+		else if (Input.GetKey(KeyCode.DownArrow) && SceneManager.GetActiveScene ().name != "Info") {
 			self.velocity = new Vector2(self.velocity.x, self.velocity.y - speed);
 		}
 		else if (Input.GetKey(KeyCode.Space)) {
-			Application.LoadLevel(Application.loadedLevel);
+			if(SceneManager.GetActiveScene ().name == "Info"){
+				SceneManager.LoadScene ("Level0");
+
+			}else{
+				Application.LoadLevel(Application.loadedLevel);
+			}
+		}
+		if(!Input.anyKeyDown && SceneManager.GetActiveScene ().name != "Title"){
+			idle += Time.deltaTime;
+			if(idle >= 60.0f){
+				SceneManager.LoadScene ("Title");
+				idle = 0.0f;
+			}
+		}else{
+			idle = 0.0f;
 		}
 	}
 
